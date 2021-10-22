@@ -2,21 +2,24 @@
  * @Description:
  * @Version: 2.0
  * @Autor: wuwei3
- * @Date: 2021-10-21 17:05:44
+ * @Date: 2021-10-22 14:37:35
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 15:17:50
+ * @LastEditTime: 2021-10-22 14:38:48
  */
 'use strict';
 
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
-  async index() {
+  async user() {
     const { ctx } = this;
-    // app.mysql.query(sql, values);
+    ctx.body = 'hi, egg admin 1';
     console.log('ctx', ctx);
-    this.app.mysql.query('select * from user');
-    ctx.body = 'hi, egg';
+  }
+  async log() {
+    const { ctx } = this;
+    ctx.body = 'hi, egg admin 2';
+    console.log('ctx', ctx);
   }
 }
 
