@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 10:47:25
+ * @LastEditTime: 2021-10-22 15:36:00
  */
 'use strict';
 
@@ -15,8 +15,12 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    // 解密后的数据为
-    ctx.body = { status: true, data: '', msg: '解密成功' };
+    let { name, age } = ctx.request.body;
+    let users = await this.app.mysql.insert('user', { name: name, age: age });
+    console.log('user', users);
+    // await conn.commit();  //提交事务
+    // await conn.rollback();//回滚事务
+    ctx.body = { status: true, data: users, msg: '新增成功' };
   }
 }
 

@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 15:01:59
+ * @LastEditTime: 2021-10-22 15:25:20
  */
 'use strict';
 
@@ -27,30 +27,32 @@ module.exports = (appInfo) => {
     multipart: {
       fileExtensions: ['.apk'], //whitelist: [ '.png' ],
     },
+
     /* 统一异常处理 */
     onerror: {
       errorPageUrl: (err, ctx) => ctx.errorPageUrl || '/500',
     },
-    /* mysqlp 配置 */
-    mysql: {
-      client: {
-        // host
-        host: '47.98.55.236',
-        // port
-        port: '3306',
-        // username
-        user: 'root',
-        // password
-        password: 'root',
-        // database
-        database: 'egg',
-      },
-      // load into app, default is open
-      app: true,
-      // load into agent, default is close
-      agent: false,
-    },
   });
+
+  /* 开启数据库链接 */
+  config.mysql = {
+    client: {
+      // host
+      host: '47.98.55.236',
+      // 端口号
+      port: '3306',
+      // 用户名
+      user: 'root',
+      // 密码
+      password: 'root',
+      // 数据库名
+      database: 'egg',
+    },
+    // 是否加载到 app 上，默认开启
+    app: true,
+    // 是否加载到 agent 上，默认关闭
+    agent: false,
+  };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1634807007019_5794';
