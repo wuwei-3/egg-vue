@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 17:12:29
+ * @LastEditTime: 2021-10-25 13:45:31
  */
 'use strict';
 
@@ -66,7 +66,12 @@ module.exports = (appInfo) => {
   config.keys = appInfo.name + '_1634807007019_5794';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['errorHandler'];
+
+  // 只对 /api 前缀的 url 路径生效
+  config.errorHandler = {
+    match: '/news',
+  };
 
   // add your user config here
   const userConfig = {

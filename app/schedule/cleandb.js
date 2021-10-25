@@ -1,10 +1,10 @@
 /*
- * @Description:
+ * @Description: 定时任务
  * @Version: 2.0
  * @Autor: wuwei3
  * @Date: 2021-10-22 14:52:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 14:52:19
+ * @LastEditTime: 2021-10-25 13:53:29
  */
 const Subscription = require('egg').Subscription;
 
@@ -22,14 +22,14 @@ class CleanDB extends Subscription {
   static get schedule() {
     return {
       type: 'worker',
-      cron: '0 0 3 * * *',
-      // interval: '1h',
-      // immediate: true,
+      // cron: '0 0 3 * * *',
+      interval: '10m',
+      immediate: true,
     };
   }
 
   async subscribe() {
-    await this.ctx.service.db.cleandb();
+    console.log('定时任务开始');
   }
 }
 
