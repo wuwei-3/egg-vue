@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 15:25:20
+ * @LastEditTime: 2021-10-22 17:12:29
  */
 'use strict';
 
@@ -33,6 +33,14 @@ module.exports = (appInfo) => {
       errorPageUrl: (err, ctx) => ctx.errorPageUrl || '/500',
     },
   });
+
+  /* 文件上传限制 */
+  config.multipart = {
+    fileSize: '1000mb',
+    whitelist() {
+      return true;
+    },
+  };
 
   /* 开启数据库链接 */
   config.mysql = {

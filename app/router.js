@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 14:39:20
+ * @LastEditTime: 2021-10-22 15:52:19
  */
 'use strict';
 
@@ -15,4 +15,5 @@ module.exports = (app) => {
   require('./router/index')(app);
   require('./router/new')(app);
   require('./router/admin')(app);
+  require('./router/file')(app);
 };
