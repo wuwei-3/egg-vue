@@ -3,8 +3,8 @@
  * @Version: 2.0
  * @Autor: wuwei3
  * @Date: 2021-10-21 17:05:44
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-25 13:45:31
+ * @LastEditors: OBKoro1
+ * @LastEditTime: 2021-12-08 15:45:04
  */
 'use strict';
 
@@ -37,7 +37,7 @@ module.exports = (appInfo) => {
   /* 文件上传限制 */
   config.multipart = {
     fileSize: '1000mb',
-    whitelist() {
+    whitelist () {
       return true;
     },
   };
@@ -46,7 +46,7 @@ module.exports = (appInfo) => {
   config.mysql = {
     client: {
       // host
-      host: '47.98.55.236',
+      host: 'localhost',
       // 端口号
       port: '3306',
       // 用户名
