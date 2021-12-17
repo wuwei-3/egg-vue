@@ -3,8 +3,8 @@
  * @Version: 2.0
  * @Autor: wuwei3
  * @Date: 2021-10-22 14:52:18
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-25 13:53:29
+ * @LastEditors: OBKoro1
+ * @LastEditTime: 2021-12-09 14:12:29
  */
 const Subscription = require('egg').Subscription;
 
@@ -19,7 +19,7 @@ class CleanDB extends Subscription {
    *  - {Boolean} [disable] - whether to disable a scheduler, usually use in dynamic schedule
    *  - {Array} [env] - only enable scheduler when match env list
    */
-  static get schedule() {
+  static get schedule () {
     return {
       type: 'worker',
       // cron: '0 0 3 * * *',
@@ -28,8 +28,8 @@ class CleanDB extends Subscription {
     };
   }
 
-  async subscribe() {
-    console.log('定时任务开始');
+  async subscribe () {
+    console.log('定时任务开始,10分钟一次');
   }
 }
 

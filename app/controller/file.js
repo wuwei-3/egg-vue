@@ -3,8 +3,8 @@
  * @Version: 2.0
  * @Autor: wuwei3
  * @Date: 2021-10-22 15:48:00
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-22 17:16:15
+ * @LastEditors: OBKoro1
+ * @LastEditTime: 2021-12-09 13:50:22
  */
 'use strict';
 
@@ -16,10 +16,10 @@ let uploadPath = '../../app/public/upload'; // 默认存储路径
 
 class HomeController extends Controller {
   /* 删除文件 */
-  async deleteFile() {}
+  async deleteFile () { }
 
   /* 文件保存 */
-  async saveFile() {
+  async saveFile () {
     const { ctx } = this;
     const stream = await ctx.getFileStream(); // multipart() 接收多个文件
     const filename = stream.filename;
@@ -36,7 +36,7 @@ class HomeController extends Controller {
         return (ctx.body = { msg: '上传失败,文件已存在', filename: filename });
       }
       // 遇到异常主动处理
-    } catch (error) {}
+    } catch (error) { }
     // 写入流
     const writeStream = fs.createWriteStream(target);
     let res = await this.saveStream(stream, writeStream);
@@ -49,7 +49,7 @@ class HomeController extends Controller {
     }
   }
   /* 判断文件是否存在 */
-  async isFileExisted(target) {
+  async isFileExisted (target) {
     return new Promise(function (resolve, reject) {
       fs.access(target, (err) => {
         if (err) {
@@ -62,7 +62,7 @@ class HomeController extends Controller {
   }
 
   /* 文件上传 */
-  async saveStream(stream, writeStream) {
+  async saveStream (stream, writeStream) {
     return new Promise((res, rej) => {
       stream
         .pipe(writeStream)
